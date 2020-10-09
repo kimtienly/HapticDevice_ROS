@@ -56,17 +56,6 @@ class DeviceChangeField(AutoUpdate(TypedField(SFBool, (SFBool, SFBool, SFVec3f, 
         pub = rospy.Publisher('/phantom/pose', PoseStamped, queue_size=1)
         pub.publish(pose)
 
-        # Publish /phantom/pose_eul
-        pose_eul = PoseStamped()
-        pose_eul.pose.position.x = pos.getValue().x
-        pose_eul.pose.position.y = pos.getValue().y
-        pose_eul.pose.position.z = pos.getValue().z
-        pose_eul.pose.orientation.x = ori.getValue().toEulerAngles().x
-        pose_eul.pose.orientation.y = ori.getValue().toEulerAngles().y
-        pose_eul.pose.orientation.z = ori.getValue().toEulerAngles().z
-        pub = rospy.Publisher('/phantom/pose_eul', PoseStamped, queue_size=1)
-        pub.publish(pose_eul)
-
         # Publish button_diff
         btn_diff = Int8()
         btn_diff = int(button1.getValue())-int(button2.getValue())
