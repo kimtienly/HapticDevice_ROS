@@ -1,0 +1,11 @@
+<X3D profile='H3DAPI' version='1.4'>
+  <Scene>  
+     <Group>
+      <Viewpoint position="0 0 0.6"/>
+    </Group>    
+    <Group DEF="GROUP" />
+      <PythonScript url="haptic.py" DEF='PY'>      
+      <Group USE="GROUP" containerField="references" />
+    </PythonScript>
+  </Scene>
+</X3D>
