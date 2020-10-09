@@ -1,4 +1,4 @@
-# ROS package for Touch haptic device
+# ROS Package for Touch Haptic Device
 
 This is a ROS Package for Geomagic Touch haptic device in Windows.
 
