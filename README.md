@@ -15,5 +15,5 @@ In two Windows ROS terminals, run:
 roscore
 ```
 ```sh
-h3dload haptic/haptic.x3d
+h3dload haptic.x3d
 ```
