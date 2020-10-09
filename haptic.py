@@ -26,7 +26,6 @@ class DeviceChangeField(AutoUpdate(TypedField(SFBool, (SFBool, SFBool, SFVec3f, 
         self.force = Vec3f(0, 0, 0)
 
     def callback(self,data):
-        # rospy.loginfo(str(data.x)+" "+str(data.y)+" "+str(data.z))
         try:
             self.force=Vec3f(data.x, data.y, data.z)
         except:
@@ -56,7 +55,7 @@ class DeviceChangeField(AutoUpdate(TypedField(SFBool, (SFBool, SFBool, SFVec3f, 
         pub = rospy.Publisher('/phantom/pose', PoseStamped, queue_size=1)
         pub.publish(pose)
 
-        # Publish button_diff
+        # Publish /phantom/button_diff
         btn_diff = Int8()
         btn_diff = int(button1.getValue())-int(button2.getValue())
         pub = rospy.Publisher('/phantom/button_diff', Int8, queue_size=1)
@@ -76,7 +75,7 @@ class DeviceChangeField(AutoUpdate(TypedField(SFBool, (SFBool, SFBool, SFVec3f, 
         pub = rospy.Publisher('/phantom/joint_states', JointState, queue_size=1)        
         pub.publish(joint_state)
 
-        # Subscribe force feedback
+        # Subscribe /phantom/force_feedback
         rospy.Subscriber("/phantom/force_feedback", Vector3, self.callback, queue_size = 1, buff_size = 1024)
         self.dn["FORCE"].force.setValue(self.force)
         # rospy.spin()
